@@ -1,5 +1,5 @@
-import Card from "../components/ui/Card/Card";
-import LinkButton from "../components/ui/LinkButton/LinkButton";
+import Card from "../../components/ui/Card/Card";
+import LinkButton from "../../components/ui/LinkButton/LinkButton";
 
 const HomeScreen = () => {
   return (
