@@ -6,7 +6,7 @@ interface Props {
 
 const Card = ({ children }: Props) => {
   return (
-    <article className="p-4 bg-white rounded shadow-lg">{children}</article>
+    <article className="p-4 bg-white rounded-lg shadow-lg">{children}</article>
   );
 };
 
