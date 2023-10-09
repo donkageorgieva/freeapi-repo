@@ -6,7 +6,7 @@ const MockedLinkButtonImplementation = () => {
   return <LinkButton to="test">My text</LinkButton>;
 };
 describe("UI Link Button", () => {
-  it("should render without errors", () => {
+  it("should render without errors", async () => {
     const { getByText } = render(
       <MemoryRouter>
         <MockedLinkButtonImplementation />
