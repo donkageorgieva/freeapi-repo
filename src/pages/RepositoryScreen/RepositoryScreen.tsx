@@ -8,6 +8,7 @@ const RepositoryScreen = () => {
       left={FilterComponent}
       right={RepositoryComponent}
       rightWeight={5}
+      responsive={true}
     />
   );
 };
