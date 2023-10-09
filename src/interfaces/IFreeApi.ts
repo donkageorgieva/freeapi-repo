@@ -1,9 +1,10 @@
 export interface IFreeApi {
   API: string;
-  title?: string;
-  description?: string;
-  auth?: string;
-  https?: boolean;
-  cors?: string;
-  category?: string;
+  Title?: string;
+  Description?: string;
+  Auth?: string;
+  HTTPS?: boolean;
+  Cors?: string;
+  Category?: string;
+  Link: string;
 }
