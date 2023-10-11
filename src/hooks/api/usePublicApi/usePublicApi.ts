@@ -5,7 +5,7 @@ export const usePublicApi = (
   callback: (result: []) => void,
   endPoint: string
 ) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const fetchData = () => {
