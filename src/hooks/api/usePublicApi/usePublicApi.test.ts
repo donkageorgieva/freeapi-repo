@@ -26,4 +26,24 @@ describe("hooks usePublicApi", () => {
     expect(isLoading).not.toBe(true);
     expect(errorMessage).not.toBe(true);
   });
+  it("should return an error message", async () => {
+    const callback = jest.fn();
+    mockAxios
+      .onGet(`${process.env.VITE_PUBLIC_API_BASE_URL}entries`)
+      .reply(500, "ERROR");
+    const { result } = renderHook(() => usePublicApi(callback, "entries"));
+    const [fetchData] = result.current;
+    //@ts-ignore
+    await act(async () => {
+      //@ts-ignore
+      fetchData();
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    });
+
+    const [, isLoading, errorMessage] = result.current;
+
+    expect(callback).toHaveBeenCalledTimes(0);
+    expect(isLoading).not.toBe(true);
+    expect(errorMessage).not.toBe(null);
+  });
 });
