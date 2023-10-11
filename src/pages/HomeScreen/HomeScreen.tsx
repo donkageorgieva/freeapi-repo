@@ -16,7 +16,7 @@ const HomeScreen = () => {
           </p>
           <div className="flex gap-2">
             <LinkButton to="login">Login</LinkButton>
-            <LinkButton to="dashboard">Continue as Guest</LinkButton>
+            <LinkButton to="repository">Continue as Guest</LinkButton>
           </div>
         </Card>
       </section>

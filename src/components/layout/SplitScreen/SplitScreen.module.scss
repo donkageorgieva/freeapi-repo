@@ -1,0 +1,8 @@
+$start: 0;
+$end: 9;
+
+@for $i from $start through $end {
+  .flex-grow-#{$i} {
+    flex-grow: #{$i};
+  }
+}

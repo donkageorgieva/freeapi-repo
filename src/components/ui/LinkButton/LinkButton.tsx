@@ -8,7 +8,7 @@ const LinkButton = ({ to, children }: Props) => {
   return (
     <Link
       to={to}
-      className="bg-indigo-500 rounded px-5 py-2 text-white my-2 inline-block hover:bg-indigo-900 transition-all "
+      className="bg-indigo-500 rounded-lg px-5 py-2 text-white my-2 inline-block hover:bg-indigo-900 transition-all "
     >
       {children}
     </Link>
