@@ -6,5 +6,5 @@ export interface IFreeApi {
   HTTPS?: boolean;
   Cors?: string;
   Category?: string;
-  Link: string;
+  Link?: string;
 }

@@ -23,7 +23,10 @@ export const usePublicApi = (
         callback(result.data.entries);
         setIsLoading(false);
       })
-      .catch((error) => setErrorMessage(error.message));
+      .catch((error) => {
+        setIsLoading(false);
+        setErrorMessage(error.message);
+      });
   };
 
   return [fetchData, isLoading, errorMessage];
