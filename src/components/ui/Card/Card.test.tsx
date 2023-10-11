@@ -11,7 +11,7 @@ describe("UI Card Component", () => {
     expect(getByText("Test")).toBeDefined();
   });
   it("should be an article html element with applied tailwind classes", () => {
-    const expectedClasses = "p-4 bg-white rounded shadow-lg";
+    const expectedClasses = "p-4 bg-white rounded-lg shadow-lg";
     const { getByRole } = render(
       <Card>
         <h1>Test</h1>

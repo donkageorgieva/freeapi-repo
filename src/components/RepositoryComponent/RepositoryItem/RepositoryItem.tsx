@@ -1,4 +1,4 @@
-const RepositoryItem = (props: any) => {
+const RepositoryItem = () => {
   return <h1>Repo item</h1>;
 };
 
