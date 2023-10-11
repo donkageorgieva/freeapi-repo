@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { IFreeApi } from "../../interfaces/IFreeApi";
 import List from "../ui/List/List";
 import RepositoryItem from "./RepositoryItem/RepositoryItem";
-import { getAllRepoEntries } from "../../services/api/getAllRepoEntries";
+// import { getAllRepoEntries } from "../../services/api/getAllRepoEntries";
+import { usePublicApi } from "../../hooks/api/usePublicApi/usePublicApi";
 const RepositoryComponent = () => {
   const [data, setData] = useState<IFreeApi[]>([]);
+  const [fetchData, isLoading, errorMessage] = usePublicApi(setData, "entries");
   useEffect(() => {
-    getAllRepoEntries(setData);
+    // @ts-ignore
+    fetchData();
   }, [setData]);
 
   return (
