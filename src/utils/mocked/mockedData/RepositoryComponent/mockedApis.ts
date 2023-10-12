@@ -12,8 +12,7 @@ export const mockedApis = [
     API: "Axolotl",
     Description: "Collection of axolotl pictures and facts",
     Auth: "",
-    HTTPS: true,
-    Cors: "no",
+
     Link: "https://theaxolotlapi.netlify.app/",
     Category: "Animals",
   },
