@@ -17,10 +17,10 @@ const SplitScreen = ({
 }: Props) => {
   return (
     <section className={`"${responsive ? "block md:flex" : "flex"}`}>
-      <div className={styles[`flex-grow-${leftWeight}`]}>
+      <div className={styles[`flex-grow-${leftWeight}`]} data-testid="left">
         <Left />
       </div>
-      <div className={styles[`flex-grow-${rightWeight}`]}>
+      <div className={styles[`flex-grow-${rightWeight}`]} data-testid="right">
         <Right />
       </div>
     </section>
