@@ -14,8 +14,10 @@ const RepositoryItem = ({
         <h2>{name}</h2>
         <p>{description}</p>
         <p>{auth}</p>
-        <p>{https ? "Yes" : "No"}</p>
-        <p>{cors ? cors[0].toUpperCase() + cors.slice(1) : "No"}</p>
+        <p data-testid="https">{https ? "Yes" : "No"}</p>
+        <p data-testid="cors">
+          {cors ? cors[0].toUpperCase() + cors.slice(1) : "No"}
+        </p>
       </article>
     </Card>
   );
