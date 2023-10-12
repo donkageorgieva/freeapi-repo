@@ -8,5 +8,6 @@ export default {
   setupFilesAfterEnv: ["<rootDir>/jest.setupFilesAfterEnv.ts"],
   moduleNameMapper: {
     "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js",
+    "^.+\\.(css|less|scss)$": "babel-jest",
   },
 };
