@@ -12,7 +12,7 @@ const List = ({
   classNames = "",
 }: Props) => {
   return (
-    <ul className={classNames}>
+    <ul className={classNames} data-testid="list">
       {data.map((item: any) => (
         <li key={keyPropertyName.map((name: string) => item[name]).join("")}>
           <ItemComponent {...item} />
