@@ -1,0 +1,8 @@
+.container {
+  @apply w-full;
+}
+@media (min-width: theme("screens.2xl")) {
+  .container {
+    width: 90rem;
+  }
+}
