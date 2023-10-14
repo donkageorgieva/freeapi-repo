@@ -1,5 +1,3 @@
-import styles from "./SplitScreen.module.scss";
-
 interface Props {
   left: React.ComponentType;
   right: React.ComponentType;
@@ -16,7 +14,9 @@ const SplitScreen = ({
   responsive = false,
 }: Props) => {
   return (
-    <section className={`"${responsive ? "block xl:flex" : "flex"}`}>
+    <section
+      className={`"${responsive ? "block xl:flex justify-between" : "flex"}`}
+    >
       <div style={{ flex: `0 0 ${leftWeight}` }} data-testid="left">
         <Left />
       </div>

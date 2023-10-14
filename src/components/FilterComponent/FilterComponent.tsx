@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePublicApi } from "../../hooks/api/usePublicApi/usePublicApi";
 import FilterList from "./FilterList/FilterList";
+import Card from "../ui/Card/Card";
 
 const FilterComponent = () => {
   const [categories, setCategories] = useState<any>(null);
@@ -16,13 +17,13 @@ const FilterComponent = () => {
     fetchData();
   }, []);
   return (
-    <>
+    <Card classNames="mr-auto xl:mr-8">
       <FilterList
         isLoading={isLoading}
         errorMessage={errorMessage}
         data={categories}
       />
-    </>
+    </Card>
   );
 };
 

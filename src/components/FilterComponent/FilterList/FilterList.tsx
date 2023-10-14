@@ -1,6 +1,6 @@
 import List from "../../ui/List/List";
 import FilterItem from "./FilterItem/FilterItem";
-import styles from "./FilterList.module.scss";
+
 interface Props {
   isLoading: unknown;
   errorMessage: any;
@@ -10,9 +10,11 @@ interface Props {
 const FilterList = ({ data }: Props) => {
   const onFilter = (item: any) => {};
   return (
-    <div className={styles["filter-list"]}>
+    <div>
       {data && data.categories.length > 0 ? (
         <List
+          listClassnames="my-2 hover:cursor-pointer hover:text-indigo-500"
+          classNames="flex flex-wrap xl:block py-4 xl:py-0"
           handleClick={onFilter}
           data={data.categories.map((data: string) => {
             return {
