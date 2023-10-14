@@ -8,8 +8,9 @@ const RepositoryScreen = () => {
       <SplitScreen
         left={FilterComponent}
         right={RepositoryComponent}
-        rightWeight={5}
         responsive={true}
+        leftWeight="20%"
+        rightWeight="70%"
       />
     </main>
   );
