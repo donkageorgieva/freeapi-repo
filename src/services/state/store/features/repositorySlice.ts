@@ -25,12 +25,12 @@ export const repoSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getRepositoryAsync.fulfilled, (state, action) => {
       state.apis = [...action.payload.entries];
-      // state.apis.push(action.payload.entries);
+
       state.isLoading = false;
     });
     builder.addCase(getCategoriesAsync.fulfilled, (state, action) => {
-      state.apis = [...action.payload.entries];
-      // state.apis.push(action.payload.entries);
+      state.categories = [...action.payload.categories];
+
       state.isLoading = false;
     });
     builder.addMatcher(isPending, (state) => {
@@ -48,4 +48,8 @@ export const repoSlice = createSlice({
 });
 
 export default repoSlice.reducer;
-export const repoActions = { ...repoSlice.actions, getRepositoryAsync };
+export const repoActions = {
+  ...repoSlice.actions,
+  getRepositoryAsync,
+  getCategoriesAsync,
+};

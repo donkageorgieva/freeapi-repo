@@ -13,7 +13,7 @@ const RepositoryComponent = () => {
   const isLoading = useAppSelector(
     (state: RootState) => state.repository.isLoading
   );
-  // console.log(data, "DATA");
+
   const errorMessage = useAppSelector(
     (state: RootState) => state.repository.errorMessage
   );

@@ -6,6 +6,7 @@ export const getCategoriesAsync = createAsyncThunk(
   async () => {
     const fetchData = usePublicApi("categories");
     const response = await fetchData();
+
     return response.data;
   }
 );
