@@ -1,5 +1,29 @@
+import { useEffect, useState } from "react";
+import { usePublicApi } from "../../hooks/api/usePublicApi/usePublicApi";
+import FilterList from "./FilterList/FilterList";
+import Card from "../ui/Card/Card";
+
 const FilterComponent = () => {
-  return <h1>Filter Component</h1>;
+  const [categories, setCategories] = useState<any>(null);
+
+  const [fetchData, isLoading, errorMessage] = usePublicApi(
+    setCategories,
+    "categories"
+  );
+
+  useEffect(() => {
+    //@ts-ignore
+    fetchData();
+  }, []);
+  return (
+    <Card classNames="mr-auto xl:mr-8">
+      <FilterList
+        isLoading={isLoading}
+        errorMessage={errorMessage}
+        data={categories}
+      />
+    </Card>
+  );
 };
 
 export default FilterComponent;

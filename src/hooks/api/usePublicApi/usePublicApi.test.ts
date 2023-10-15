@@ -22,7 +22,7 @@ describe("hooks usePublicApi", () => {
 
     const [, isLoading, errorMessage] = result.current;
 
-    expect(callback).toHaveBeenCalledWith(mockedApiResult.entries);
+    expect(callback).toHaveBeenCalledWith(mockedApiResult);
     expect(isLoading).not.toBe(true);
     expect(errorMessage).not.toBe(true);
   });

@@ -3,7 +3,7 @@ import { IFreeApi } from "../../../interfaces/IFreeApi";
 import { mockedApis } from "../../../utils/mocked/mockedData/RepositoryComponent/mockedApis";
 import RepositoryItem from "../RepositoryItem/RepositoryItem";
 import RepositoryItemSkeleton from "../RepositoryItem/RepositoryItemSkeleton/RepositoryItemSkeleton";
-import styles from "./RepositoryList.module.scss";
+
 interface Props {
   data: IFreeApi[] | null;
   isLoading: any;
@@ -12,7 +12,7 @@ interface Props {
 
 const RepositoryList = ({ data, isLoading, errorMessage }: Props) => {
   return (
-    <div className={styles.container}>
+    <div>
       <h1 className="text-3xl font-bold mb-2" data-testid="public-api-list">
         Public APIs{" "}
       </h1>

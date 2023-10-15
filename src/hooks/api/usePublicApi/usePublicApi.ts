@@ -20,7 +20,7 @@ export const usePublicApi = (
         return response;
       })
       .then((result: any) => {
-        callback(result.data.entries);
+        callback(result.data);
         setIsLoading(false);
       })
       .catch((error) => {
