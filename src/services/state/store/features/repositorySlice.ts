@@ -24,3 +24,6 @@ export const repoSlice = createSlice({
     },
   },
 });
+
+export default repoSlice.reducer;
+export const { setRepository, filterRepository } = repoSlice.actions;
