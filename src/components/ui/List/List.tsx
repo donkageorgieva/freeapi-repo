@@ -3,7 +3,7 @@ import { useState } from "react";
 interface Props {
   data: Array<any>;
   keyPropertyName?: Array<string>;
-  itemComponent: React.FunctionComponent;
+  itemComponent: React.FunctionComponent<any>;
   classNames?: string;
   listClassnames?: string;
   handleClick?: (item: any) => void;
@@ -24,6 +24,7 @@ const List = ({
       handleClick(item);
     }
   };
+
   return (
     <ul className={classNames} data-testid="list">
       {data.map((item: any, index) => (
@@ -31,7 +32,8 @@ const List = ({
           className={listClassnames}
           key={
             keyPropertyName
-              ? keyPropertyName.map((name: string) => item[name]).join("")
+              ? keyPropertyName.map((name: string) => item[name]).join("") +
+                index
               : index
           }
           onClick={onClickItem.bind(null, item)}

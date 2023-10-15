@@ -11,12 +11,12 @@ const FilterList = ({ data }: Props) => {
   const onFilter = (item: any) => {};
   return (
     <div>
-      {data && data.categories.length > 0 ? (
+      {data && data.length > 0 ? (
         <List
           listClassnames="my-2 hover:cursor-pointer hover:text-indigo-500"
           classNames="flex flex-wrap xl:block py-4 xl:py-0"
           handleClick={onFilter}
-          data={data.categories.map((data: string) => {
+          data={data.map((data: string) => {
             return {
               category: data,
             };

@@ -24,18 +24,13 @@ const RepositoryList = ({ data, isLoading, errorMessage }: Props) => {
         <h2 className="font-bold">Https</h2>
         <h2 className="font-bold">Cors</h2>
       </section>
-
-      {(data && data.length > 0) || isLoading ? (
+      {!errorMessage && (
         <List
-          data={data ? data : mockedApis}
+          data={data && data.length > 0 ? data : mockedApis}
           keyPropertyName={["Link", "API"]}
-          //@ts-ignore
-          itemComponent={data ? RepositoryItem : RepositoryItemSkeleton}
+          itemComponent={!isLoading ? RepositoryItem : RepositoryItemSkeleton}
         />
-      ) : (
-        !isLoading && <h1>No data</h1>
       )}
-      {errorMessage && <h1> Error </h1>}
     </div>
   );
 };

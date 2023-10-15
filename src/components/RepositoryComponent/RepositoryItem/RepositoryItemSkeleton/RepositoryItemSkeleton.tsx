@@ -1,6 +1,6 @@
 import Card from "../../../ui/Card/Card";
 
-const RepositoryItemSkeleton = () => {
+const RepositoryItemSkeleton: React.FunctionComponent<any> = () => {
   return (
     <Card classNames="my-4 shadow-sm">
       <article className="grid grid-cols-5 gap-2  p-4 ">
