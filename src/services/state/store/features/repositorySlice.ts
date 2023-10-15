@@ -1,11 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isPending } from "@reduxjs/toolkit";
 import { IFreeApi } from "../../../../interfaces/IFreeApi";
 import { getRepositoryAsync } from "./thunks/repository/getRepository";
+import { getCategoriesAsync } from "./thunks/repository/getCategories";
 interface IRepositoryState {
   filter: string | null;
   apis: IFreeApi[];
   isLoading: boolean;
   errorMessage: string | null;
+  categories: string[];
 }
 
 const initialState: IRepositoryState = {
@@ -13,6 +15,7 @@ const initialState: IRepositoryState = {
   apis: [],
   errorMessage: null,
   isLoading: false,
+  categories: [],
 };
 
 export const repoSlice = createSlice({
@@ -25,14 +28,22 @@ export const repoSlice = createSlice({
       // state.apis.push(action.payload.entries);
       state.isLoading = false;
     });
-    builder.addCase(getRepositoryAsync.pending, (state) => {
+    builder.addCase(getCategoriesAsync.fulfilled, (state, action) => {
+      state.apis = [...action.payload.entries];
+      // state.apis.push(action.payload.entries);
+      state.isLoading = false;
+    });
+    builder.addMatcher(isPending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(getRepositoryAsync.rejected, (state, action) => {
-      state.errorMessage = action.error.message
-        ? action.error.message
-        : "Unknwon Error";
-    });
+    builder.addMatcher(
+      (action) => action.type.endsWith("/rejected"),
+      (state, action) => {
+        state.errorMessage = action.error.message
+          ? action.error.message
+          : "Unknwon Error";
+      }
+    );
   },
 });
 

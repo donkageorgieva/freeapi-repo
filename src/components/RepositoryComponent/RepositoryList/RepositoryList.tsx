@@ -28,7 +28,6 @@ const RepositoryList = ({ data, isLoading, errorMessage }: Props) => {
         <List
           data={data && data.length > 0 ? data : mockedApis}
           keyPropertyName={["Link", "API"]}
-          //@ts-ignore
           itemComponent={!isLoading ? RepositoryItem : RepositoryItemSkeleton}
         />
       )}

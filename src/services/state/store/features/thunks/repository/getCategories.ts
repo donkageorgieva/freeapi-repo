@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { usePublicApi } from "../../../../../../hooks/api/usePublicApi/usePublicApi";
 
-export const getRepositoryAsync = createAsyncThunk(
-  "repository/getRepositoryAsync",
+export const getCategoriesAsync = createAsyncThunk(
+  "repository/getCategoriesAsync",
   async () => {
-    const fetchData = usePublicApi("entries");
+    const fetchData = usePublicApi("categories");
     const response = await fetchData();
     return response.data;
   }
