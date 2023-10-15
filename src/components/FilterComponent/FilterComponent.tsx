@@ -10,9 +10,8 @@ const FilterComponent = () => {
     setCategories,
     "categories"
   );
-  // const [categories, setCategories] = useState<Array | null>(null)
+
   useEffect(() => {
-    console.log("here");
     //@ts-ignore
     fetchData();
   }, []);
