@@ -4,24 +4,24 @@ import FilterList from "./FilterList/FilterList";
 import Card from "../ui/Card/Card";
 
 const FilterComponent = () => {
-  const [categories, setCategories] = useState<any>(null);
+  // const [categories, setCategories] = useState<any>(null);
 
-  const [fetchData, isLoading, errorMessage] = usePublicApi(
-    setCategories,
-    "categories"
-  );
+  // const [fetchData, isLoading, errorMessage] = usePublicApi(
+  //   setCategories,
+  //   "categories"
+  // );
 
-  useEffect(() => {
-    //@ts-ignore
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   //@ts-ignore
+  //   fetchData();
+  // }, []);
   return (
     <Card classNames="mr-auto xl:mr-8">
-      <FilterList
+      {/* <FilterList
         isLoading={isLoading}
         errorMessage={errorMessage}
         data={categories}
-      />
+      /> */}
     </Card>
   );
 };

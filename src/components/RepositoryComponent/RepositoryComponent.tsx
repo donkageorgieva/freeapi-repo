@@ -1,22 +1,20 @@
-import { useEffect, useState } from "react";
-// import { IFreeApi } from "../../interfaces/IFreeApi";
-import { usePublicApi } from "../../hooks/api/usePublicApi/usePublicApi";
+import { useEffect } from "react";
+import { useAppDispatch } from "../../services/state/store/store";
+import { repoActions } from "../../services/state/store/features/repositorySlice";
 
-import RepositoryList from "./RepositoryList/RepositoryList";
 const RepositoryComponent = () => {
-  const [data, setData] = useState<any>(null);
-  const [fetchData, isLoading, errorMessage] = usePublicApi(setData, "entries");
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    // @ts-ignore
-    fetchData();
+    dispatch(repoActions.getRepositoryAsync());
   }, []);
 
   return (
-    <RepositoryList
-      data={data && data.entries}
-      isLoading={isLoading}
-      errorMessage={errorMessage}
-    />
+    <></>
+    // <RepositoryList
+    //   data={data && data.entries}
+    //   isLoading={isLoading}
+    //   errorMessage={errorMessage}
+    // />
   );
 };
 

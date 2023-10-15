@@ -1,5 +1,6 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { IFreeApi } from "../../../../interfaces/IFreeApi";
+import { getRepositoryAsync } from "./thunks/repository/getRepository";
 interface IRepositoryState {
   filter: string | null;
   apis: IFreeApi[];
@@ -13,17 +14,13 @@ const initialState: IRepositoryState = {
 export const repoSlice = createSlice({
   name: "repository",
   initialState,
-  reducers: {
-    setRepository(state, action: PayloadAction<{ apis: IFreeApi[] }>) {
-      state.apis = action.payload.apis;
-    },
-    filterRepository(state, action: PayloadAction<{ category: string }>) {
-      state.apis = state.apis.filter(
-        (api) => api.Category === action.payload.category
-      );
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(getRepositoryAsync.fulfilled, (state, action) => {
+      state.apis.push(action.payload.entries);
+    });
   },
 });
 
 export default repoSlice.reducer;
-export const { setRepository, filterRepository } = repoSlice.actions;
+export const repoActions = { ...repoSlice.actions, getRepositoryAsync };
