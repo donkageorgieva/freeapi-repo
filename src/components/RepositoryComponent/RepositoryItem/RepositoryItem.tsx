@@ -1,7 +1,7 @@
 import { IFreeApi } from "../../../interfaces/IFreeApi";
 import Card from "../../ui/Card/Card";
 
-const RepositoryItem = ({
+const RepositoryItem: React.FunctionComponent<IFreeApi> = ({
   API: name,
   Description: description,
   Auth: auth,

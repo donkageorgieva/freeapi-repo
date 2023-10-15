@@ -5,7 +5,7 @@ import RepositoryItem from "../RepositoryItem/RepositoryItem";
 import RepositoryItemSkeleton from "../RepositoryItem/RepositoryItemSkeleton/RepositoryItemSkeleton";
 
 interface Props {
-  data: IFreeApi[] | null;
+  data: IFreeApi[];
   isLoading: any;
   errorMessage: any;
 }
@@ -14,7 +14,7 @@ const RepositoryList = ({ data, isLoading, errorMessage }: Props) => {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-2" data-testid="public-api-list">
-        Public APIs{" "}
+        Public APIs
       </h1>
       {isLoading && <h1>Loading</h1>}
       <section className="grid grid-cols-5 gap-2 p-4 bg-white shadow-lg rounded-lg mt-5">
@@ -24,18 +24,7 @@ const RepositoryList = ({ data, isLoading, errorMessage }: Props) => {
         <h2 className="font-bold">Https</h2>
         <h2 className="font-bold">Cors</h2>
       </section>
-
-      {(data && data.length > 0) || isLoading ? (
-        <List
-          data={data ? data : mockedApis}
-          keyPropertyName={["Link", "API"]}
-          //@ts-ignore
-          itemComponent={data ? RepositoryItem : RepositoryItemSkeleton}
-        />
-      ) : (
-        !isLoading && <h1>No data</h1>
-      )}
-      {errorMessage && <h1> Error </h1>}
+      <List data={data} itemComponent={RepositoryItem} />
     </div>
   );
 };
