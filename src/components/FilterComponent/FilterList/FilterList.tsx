@@ -1,5 +1,9 @@
 import { getByCategoryAsync } from "../../../services/state/store/features/thunks/repository/getCategories";
-import { useAppDispatch } from "../../../services/state/store/store";
+import {
+  RootState,
+  useAppDispatch,
+  useAppSelector,
+} from "../../../services/state/store/store";
 import List from "../../ui/List/List";
 import FilterItem from "./FilterItem/FilterItem";
 
@@ -11,7 +15,11 @@ interface Props {
 
 const FilterList = ({ data }: Props) => {
   const dispatch = useAppDispatch();
+  const currentFilter = useAppSelector(
+    (state: RootState) => state.repository.filter
+  );
   const onFilter = (item: any) => {
+    if (currentFilter === item.category) return;
     dispatch(getByCategoryAsync(item.category));
   };
   return (
