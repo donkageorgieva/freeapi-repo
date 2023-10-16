@@ -22,11 +22,13 @@ const RepositoryComponent = () => {
   }, [dispatch]);
 
   return (
-    <RepositoryList
-      data={data}
-      isLoading={isLoading}
-      errorMessage={errorMessage}
-    />
+    <div className="text-sm lg:text-base">
+      <RepositoryList
+        data={data}
+        isLoading={isLoading}
+        errorMessage={errorMessage}
+      />
+    </div>
   );
 };
 

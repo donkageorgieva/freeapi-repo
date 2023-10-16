@@ -1,7 +1,10 @@
 import { createSlice, isPending } from "@reduxjs/toolkit";
 import { IFreeApi } from "../../../../interfaces/IFreeApi";
 import { getRepositoryAsync } from "./thunks/repository/getRepository";
-import { getCategoriesAsync } from "./thunks/repository/getCategories";
+import {
+  getByCategoryAsync,
+  getCategoriesAsync,
+} from "./thunks/repository/getCategories";
 interface IRepositoryState {
   filter: string | null;
   apis: IFreeApi[];
@@ -24,6 +27,7 @@ export const repoSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getRepositoryAsync.fulfilled, (state, action) => {
+      state.filter = null;
       state.apis = [...action.payload.entries];
 
       state.isLoading = false;
@@ -31,6 +35,11 @@ export const repoSlice = createSlice({
     builder.addCase(getCategoriesAsync.fulfilled, (state, action) => {
       state.categories = [...action.payload.categories];
 
+      state.isLoading = false;
+    });
+    builder.addCase(getByCategoryAsync.fulfilled, (state, action) => {
+      state.filter = action.payload.category;
+      state.apis = [...action.payload.apis.entries];
       state.isLoading = false;
     });
     builder.addMatcher(isPending, (state) => {
@@ -52,4 +61,5 @@ export const repoActions = {
   ...repoSlice.actions,
   getRepositoryAsync,
   getCategoriesAsync,
+  getByCategoryAsync,
 };
