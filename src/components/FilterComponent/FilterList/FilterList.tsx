@@ -1,4 +1,5 @@
 import { getByCategoryAsync } from "../../../services/state/store/features/thunks/repository/getCategories";
+import { getRepositoryAsync } from "../../../services/state/store/features/thunks/repository/getRepository";
 import {
   RootState,
   useAppDispatch,
@@ -22,8 +23,18 @@ const FilterList = ({ data }: Props) => {
     if (currentFilter === item.category) return;
     dispatch(getByCategoryAsync(item.category));
   };
+  const onClearFilter = () => {
+    if (!currentFilter) return;
+    dispatch(getRepositoryAsync());
+  };
   return (
-    <div className="text-sm lg:text-base">
+    <div className="text-sm lg:text-base flex flex-col">
+      <button
+        className="self-end hover:text-indigo-500 hover:underline underline-offset-4 hover:font-bold transition-all decoration-4"
+        onClick={onClearFilter}
+      >
+        Clear Filter
+      </button>
       {data && data.length > 0 ? (
         <List
           listClassnames="my-2 mr-4 md:mr-0 hover:cursor-pointer hover:text-indigo-500"

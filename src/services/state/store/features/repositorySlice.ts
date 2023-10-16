@@ -27,6 +27,7 @@ export const repoSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getRepositoryAsync.fulfilled, (state, action) => {
+      state.filter = null;
       state.apis = [...action.payload.entries];
 
       state.isLoading = false;

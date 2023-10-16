@@ -12,7 +12,7 @@ const RepositoryItem: React.FunctionComponent<IFreeApi> = ({
   return (
     <Card classNames="my-4 shadow-sm">
       <article className="grid grid-cols-6 gap-2  p-4 break-words">
-        <h2>{name}</h2>
+        <h2 className="font-bold">{name}</h2>
         <p>{description}</p>
         <p>{auth}</p>
         <p data-testid="https">{https ? "Yes" : "No"}</p>
