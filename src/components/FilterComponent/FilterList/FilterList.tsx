@@ -23,10 +23,10 @@ const FilterList = ({ data }: Props) => {
     dispatch(getByCategoryAsync(item.category));
   };
   return (
-    <div>
+    <div className="text-sm lg:text-base">
       {data && data.length > 0 ? (
         <List
-          listClassnames="my-2 hover:cursor-pointer hover:text-indigo-500"
+          listClassnames="my-2 mr-4 md:mr-0 hover:cursor-pointer hover:text-indigo-500"
           classNames="flex flex-wrap xl:block py-4 xl:py-0"
           handleClick={onFilter}
           data={data.map((data: string) => {

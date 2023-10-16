@@ -17,12 +17,13 @@ const RepositoryList = ({ data, isLoading, errorMessage }: Props) => {
         Public APIs{" "}
       </h1>
       {isLoading && <h1>Loading</h1>}
-      <section className="grid grid-cols-5 gap-2 p-4 bg-white shadow-lg rounded-lg mt-5">
+      <section className="grid grid-cols-6 gap-2 p-4 bg-white shadow-lg rounded-lg mt-5">
         <h2 className="font-bold">Name</h2>
         <h2 className="font-bold">Description</h2>
         <h2 className="font-bold">Auth</h2>
         <h2 className="font-bold">Https</h2>
         <h2 className="font-bold">Cors</h2>
+        <h2 className="font-bold">Link</h2>
       </section>
       {!errorMessage && (
         <List
