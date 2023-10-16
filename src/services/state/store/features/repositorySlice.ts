@@ -13,7 +13,7 @@ interface IRepositoryState {
   categories: string[];
 }
 
-const initialState: IRepositoryState = {
+export const initialState: IRepositoryState = {
   filter: null,
   apis: [],
   errorMessage: null,

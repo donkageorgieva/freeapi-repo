@@ -13,3 +13,4 @@ export const useAppSelector: TypedUseSelectorHook<
   ReturnType<typeof store.getState>
 > = useSelector;
 export type RootState = ReturnType<typeof store.getState>;
+export type AppStore = typeof store;
