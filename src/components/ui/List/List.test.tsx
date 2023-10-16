@@ -14,4 +14,5 @@ describe("UI List Component", () => {
     );
     expect(getByText("AdoptAPet")).toBeDefined();
   });
+  it("should set active item classes on click", () => {});
 });
