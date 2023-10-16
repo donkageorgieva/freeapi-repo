@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { usePublicApi } from "../../hooks/api/usePublicApi/usePublicApi";
+import { useEffect } from "react";
 import FilterList from "./FilterList/FilterList";
 import Card from "../ui/Card/Card";
 import {
