@@ -10,7 +10,7 @@ const FilterItem = ({ category, active }: Props) => {
         active && active.category === category && "text-indigo-500"
       }`}
     >
-      {category}
+      <h4>{category}</h4>
     </div>
   );
 };
