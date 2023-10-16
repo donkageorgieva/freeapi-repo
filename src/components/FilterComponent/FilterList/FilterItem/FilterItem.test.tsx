@@ -1,22 +1,13 @@
 import { renderWithProviders } from "../../../../utils/__tests__/global-store";
 import FilterItem from "./FilterItem";
-import { configureStore } from "@reduxjs/toolkit";
-import {
-  initialState,
-  repoSlice,
-} from "../../../../services/state/store/features/repositorySlice";
+
+import { initialState } from "../../../../services/state/store/features/repositorySlice";
+import { createCustomStore } from "../../../../utils/__tests__/custom-store";
 
 // Create a custom store with the custom initial state
-const customStore = configureStore({
-  reducer: {
-    repository: repoSlice.reducer,
-  },
-  preloadedState: {
-    repository: {
-      ...initialState,
-      filter: "Animals",
-    },
-  },
+const customStore = createCustomStore({
+  ...initialState,
+  filter: "Animals",
 });
 describe("FilterItem ", () => {
   it("should render without errors", () => {
