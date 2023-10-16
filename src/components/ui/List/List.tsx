@@ -30,6 +30,7 @@ const List = ({
       {data.map((item: any, index) => (
         <li
           className={listClassnames}
+          data-testid={item.API}
           key={
             keyPropertyName
               ? keyPropertyName.map((name: string) => item[name]).join("") +
