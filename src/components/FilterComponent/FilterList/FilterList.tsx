@@ -31,27 +31,29 @@ const FilterList = ({ data }: Props) => {
     <div className="text-sm lg:text-base flex flex-col">
       <button
         data-testid="filter-btn"
-        className="self-end hover:text-indigo-500 hover:underline underline-offset-4 hover:font-bold transition-all decoration-4"
+        className="self-end text-indigo-500 hover:underline underline-offset-4 hover:font-bold transition-all decoration-4"
         onClick={onClearFilter}
       >
         Clear Filter
       </button>
-      {data && data.length > 0 ? (
-        <List
-          listClassnames="my-2 mr-4 md:mr-0 hover:cursor-pointer hover:text-indigo-500"
-          classNames="flex flex-wrap xl:block py-4 xl:py-0"
-          handleClick={onFilter}
-          data={data.map((data: string) => {
-            return {
-              category: data,
-            };
-          })}
-          //@ts-ignore
-          itemComponent={FilterItem}
-        ></List>
-      ) : (
-        <h1>Loading</h1>
-      )}
+      <div className="py-4">
+        <h1 className="font-bold">Filter By Category</h1>
+        {data && data.length > 0 ? (
+          <List
+            listClassnames="my-2 mr-4 md:mr-0 hover:cursor-pointer hover:text-indigo-500"
+            classNames="flex flex-wrap xl:block py-4 xl:py-0"
+            handleClick={onFilter}
+            data={data.map((data: string) => {
+              return {
+                category: data,
+              };
+            })}
+            itemComponent={FilterItem}
+          ></List>
+        ) : (
+          <h1>Loading</h1>
+        )}
+      </div>
     </div>
   );
 };

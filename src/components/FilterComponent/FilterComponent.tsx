@@ -9,7 +9,6 @@ import {
 import { repoActions } from "../../services/state/store/features/repositorySlice";
 
 const FilterComponent = () => {
-  // const [categories, setCategories] = useState<any>(null);
   const categories = useAppSelector(
     (state: RootState) => state.repository.categories
   );
