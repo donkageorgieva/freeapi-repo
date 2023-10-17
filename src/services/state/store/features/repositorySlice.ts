@@ -39,7 +39,11 @@ export const repoSlice = createSlice({
     });
     builder.addCase(getByCategoryAsync.fulfilled, (state, action) => {
       state.filter = action.payload.category;
-      state.apis = [...action.payload.apis.entries];
+      state.apis = [
+        ...action.payload.apis.entries.filter(
+          (api: IFreeApi) => api.Category === action.payload.category
+        ),
+      ];
       state.isLoading = false;
     });
     builder.addMatcher(isPending, (state) => {

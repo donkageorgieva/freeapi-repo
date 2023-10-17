@@ -1,8 +1,8 @@
-import { renderWithProviders } from "../../../../utils/__tests__/global-store";
+import { renderWithProviders } from "../../../../utils/tests/global-store";
 import FilterItem from "./FilterItem";
 
 import { initialState } from "../../../../services/state/store/features/repositorySlice";
-import { createCustomStore } from "../../../../utils/__tests__/custom-store";
+import { createCustomStore } from "../../../../utils/tests/custom-store";
 
 // Create a custom store with the custom initial state
 const customStore = createCustomStore({

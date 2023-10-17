@@ -25,4 +25,13 @@ export const mockedApis = [
     Link: "https://alexwohlbruck.github.io/cat-facts/",
     Category: "Animals",
   },
+  {
+    API: "Science Facts",
+    Description: "Daily cat facts",
+    Auth: "",
+    HTTPS: true,
+    Cors: "no",
+    Link: "https://alexwohlbruck.github.io/cat-facts/",
+    Category: "Science",
+  },
 ];

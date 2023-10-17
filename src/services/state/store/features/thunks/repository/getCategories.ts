@@ -13,7 +13,7 @@ export const getCategoriesAsync = createAsyncThunk(
 export const getByCategoryAsync = createAsyncThunk(
   "repository/getByCategoryAsync",
   async (category: string) => {
-    const fetchData = usePublicApi(`entries?&category=${category}`);
+    const fetchData = usePublicApi(``);
     const response = await fetchData();
 
     return { apis: response.data, category };
