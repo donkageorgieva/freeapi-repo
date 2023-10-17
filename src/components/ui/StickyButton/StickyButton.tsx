@@ -1,4 +1,3 @@
-import React from "react";
 import useScrollToTop from "../../../hooks/scrollToTop/useScrollToTop";
 import ArrowUp from "../../../assets/svgs/ArrowUp";
 
