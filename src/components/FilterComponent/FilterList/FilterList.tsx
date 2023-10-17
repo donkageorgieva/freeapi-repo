@@ -41,6 +41,7 @@ const FilterList = ({ data, toggleExpand }: Props) => {
     <div className="text-sm lg:text-base flex flex-col   ">
       <div
         className="flex justify-between xl:justify-end "
+        data-testid="expandable-filter"
         onClick={(event: any) => {
           event.stopPropagation();
           setRotateChevron(!rotateChevron);
@@ -49,6 +50,7 @@ const FilterList = ({ data, toggleExpand }: Props) => {
       >
         <h1 className="font-bold xl:hidden block">Filter By Category</h1>
         <button
+          data-testid="chevron-button"
           className={[
             "block xl:hidden transition-all",
             rotateChevron ? "rotate-180" : "rotate-0",
