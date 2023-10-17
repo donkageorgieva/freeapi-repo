@@ -5,7 +5,7 @@ import {
 
 interface Props {
   category: string;
-  active: any;
+  active?: any;
 }
 
 const FilterItem = ({ category }: Props) => {
@@ -14,6 +14,7 @@ const FilterItem = ({ category }: Props) => {
   );
   return (
     <div
+      data-testid="filter-item"
       className={`${
         activeFilter && activeFilter === category && "text-indigo-500"
       }`}

@@ -23,13 +23,14 @@ const FilterList = ({ data }: Props) => {
     if (currentFilter === item.category) return;
     dispatch(getByCategoryAsync(item.category));
   };
-  const onClearFilter = () => {
+  const onClearFilter = async () => {
     if (!currentFilter) return;
     dispatch(getRepositoryAsync());
   };
   return (
     <div className="text-sm lg:text-base flex flex-col">
       <button
+        data-testid="filter-btn"
         className="self-end hover:text-indigo-500 hover:underline underline-offset-4 hover:font-bold transition-all decoration-4"
         onClick={onClearFilter}
       >

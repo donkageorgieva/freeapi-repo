@@ -19,7 +19,7 @@ const RepositoryComponent = () => {
   );
   useEffect(() => {
     dispatch(repoActions.getRepositoryAsync());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="text-sm lg:text-base">

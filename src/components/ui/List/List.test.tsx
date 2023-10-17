@@ -4,6 +4,7 @@ import { mockedApis } from "../../../utils/mocked/mockedData/RepositoryComponent
 import MockedListItem from "../../../utils/mocked/ui/List/MockedListItem";
 
 import "@testing-library/jest-dom";
+import { act } from "react-dom/test-utils";
 describe("UI List Component", () => {
   it("should render without errors", () => {
     const { getByText } = render(
@@ -26,7 +27,10 @@ describe("UI List Component", () => {
       />
     );
     const firstListItem = getByTestId("AdoptAPet");
-    firstListItem.click();
+    act(() => {
+      firstListItem.click();
+    });
+
     expect(clickedFn).toHaveBeenCalledTimes(1);
   });
 });
