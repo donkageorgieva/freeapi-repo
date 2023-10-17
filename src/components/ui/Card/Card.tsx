@@ -10,7 +10,7 @@ const Card = ({ children, classNames, dataTestId }: Props) => {
   return (
     <article
       data-testid={dataTestId}
-      className={["p-4 bg-white rounded-lg shadow-lg", classNames].join(" ")}
+      className={["p-4 bg-white rounded-lg shadow-md", classNames].join(" ")}
     >
       {children}
     </article>
