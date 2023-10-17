@@ -1,3 +1,4 @@
+import useScrollToTop from "../../../hooks/scrollToTop/useScrollToTop";
 import { getByCategoryAsync } from "../../../services/state/store/features/thunks/repository/getCategories";
 import { getRepositoryAsync } from "../../../services/state/store/features/thunks/repository/getRepository";
 import {
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const FilterList = ({ data }: Props) => {
+  const { scrollToTop } = useScrollToTop();
   const dispatch = useAppDispatch();
   const currentFilter = useAppSelector(
     (state: RootState) => state.repository.filter
@@ -22,6 +24,7 @@ const FilterList = ({ data }: Props) => {
   const onFilter = (item: any) => {
     if (currentFilter === item.category) return;
     dispatch(getByCategoryAsync(item.category));
+    scrollToTop();
   };
   const onClearFilter = async () => {
     if (!currentFilter) return;
