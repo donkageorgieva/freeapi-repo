@@ -38,7 +38,10 @@ const FilterList = ({ data, toggleExpand }: Props) => {
   };
 
   return (
-    <div className="text-sm lg:text-base flex flex-col   ">
+    <div
+      className="text-sm lg:text-base flex flex-col   "
+      data-testid="filter-list"
+    >
       <div
         className="flex justify-between xl:justify-end "
         data-testid="expandable-filter"

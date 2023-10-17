@@ -29,6 +29,7 @@ const FilterComponent = () => {
 
   return (
     <Card
+      dataTestId="filter-card"
       classNames={`mr-auto xl:mr-8 overflow-hidden xl:h-fit cursor-pointer xl:cursor-default transition-height ${
         !expand ? "h-12" : "h-fit"
       }`}
