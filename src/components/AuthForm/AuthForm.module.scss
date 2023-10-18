@@ -1,0 +1,6 @@
+.form-container {
+  @apply px-4;
+  input {
+    @apply bg-stone-100 outline-none py-1 px-2 rounded-md mb-3 mt-1 outline-1 outline-stone-300 outline-offset-0 focus:outline-stone-500  text-stone-900;
+  }
+}

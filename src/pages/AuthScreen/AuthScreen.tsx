@@ -7,7 +7,7 @@ const AuthScreen = () => {
 
   return (
     <main className="flex justify-center items-center h-screen  bg-gradient-to-tl from-violet-900 via-indigo-500 to-blue-300">
-      <section className=" container mx-auto px-4 xl:px-0 flex justify-center ">
+      <section className=" md:container mx-auto px-4 xl:px-0 flex justify-center ">
         <AuthForm formType={type} />
       </section>
     </main>
