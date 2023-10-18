@@ -20,7 +20,7 @@ const HomeScreen = () => {
             <LinkButton to="repository">Continue as Guest</LinkButton>
           </div>
           <div className="py-4">
-            <Link to="auth/signup" className="text-indigo-600 ">
+            <Link to="auth/register" className="text-indigo-600 ">
               Don't have an account?
               <span className="ml-2 decoration-4 hover:underline underline-offset-4 font-bold transition-all">
                 Sign up
