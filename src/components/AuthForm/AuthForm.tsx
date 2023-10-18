@@ -23,80 +23,82 @@ const AuthForm = ({ formType }: Props) => {
   return (
     <Card
       classNames={[
-        "flex flex-col justify-center items-center md:w-2/6 xl:w-1/5 w-screen h-screen md:h-auto",
+        "flex flex-col justify-center items-center  xl:w-1/5 sm:w-4/5 md:w-auto   md:h-auto",
         styles["form-container"],
       ].join(" ")}
     >
-      <div className="flex justify-between items-center w-full py-4">
-        <BackButton>
-          <ArrowBack />
-        </BackButton>
-        <h1 className="font-bold text-lg">{capitalizeString(formType)}</h1>
+      <div>
+        <div className="flex justify-between items-center w-full py-4">
+          <BackButton>
+            <ArrowBack />
+          </BackButton>
+          <h1 className="font-bold text-lg">{capitalizeString(formType)}</h1>
+        </div>
+        <form className="flex flex-col py-4" onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              autoComplete="on"
+              type="email"
+              placeholder="Email"
+              className="block"
+              id="email"
+              defaultValue=""
+              {...register("email")}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              placeholder="Password"
+              type="password"
+              autoComplete="off"
+              className="block"
+              id="password"
+              defaultValue=""
+              {...register("password")}
+            />
+          </div>
+
+          {formType === "register" && (
+            <>
+              <div>
+                <label htmlFor="repeat-password">Confirm Password</label>
+                <input
+                  placeholder="Confirm Password"
+                  type="password"
+                  autoComplete="off"
+                  className="block"
+                  id="repeat-password"
+                  defaultValue=""
+                  {...register("confirmPassword")}
+                />
+              </div>
+
+              <div className="order-first">
+                <label htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  className="block "
+                  autoComplete="on"
+                  id="username"
+                  placeholder="Username"
+                  defaultValue=""
+                  {...register("username")}
+                />
+              </div>
+            </>
+          )}
+          <div className="flex justify-between pt-4">
+            <StyledButton>
+              <button type="submit">{capitalizeString(formType)}</button>
+            </StyledButton>
+
+            <BackButton>Cancel</BackButton>
+          </div>
+        </form>
       </div>
-      <form className="flex flex-col py-4" onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            autoComplete="on"
-            type="email"
-            placeholder="Email"
-            className="block"
-            id="email"
-            defaultValue=""
-            {...register("email")}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            placeholder="Password"
-            type="password"
-            autoComplete="off"
-            className="block"
-            id="password"
-            defaultValue=""
-            {...register("password")}
-          />
-        </div>
-
-        {formType === "register" && (
-          <>
-            <div>
-              <label htmlFor="repeat-password">Confirm Password</label>
-              <input
-                placeholder="Confirm Password"
-                type="password"
-                autoComplete="off"
-                className="block"
-                id="repeat-password"
-                defaultValue=""
-                {...register("confirmPassword")}
-              />
-            </div>
-
-            <div className="order-first">
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                className="block "
-                autoComplete="on"
-                id="username"
-                placeholder="Username"
-                defaultValue=""
-                {...register("username")}
-              />
-            </div>
-          </>
-        )}
-        <div className="flex justify-between pt-4">
-          <StyledButton>
-            <button type="submit">{capitalizeString(formType)}</button>
-          </StyledButton>
-
-          <BackButton>Cancel</BackButton>
-        </div>
-      </form>
     </Card>
   );
 };
