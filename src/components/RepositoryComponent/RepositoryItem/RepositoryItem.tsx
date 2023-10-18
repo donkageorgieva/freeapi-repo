@@ -10,8 +10,8 @@ const RepositoryItem: React.FunctionComponent<IFreeApi> = ({
   Link: link,
 }: IFreeApi) => {
   return (
-    <Card classNames="my-4 shadow-sm">
-      <article className="grid grid-cols-3 md:grid-cols-6 gap-2  p-4 break-words">
+    <Card classNames="my-4 shadow-sm p-0 ">
+      <article className="grid grid-cols-3 md:grid-cols-6 gap-2   p-4 xl:p-8 break-words">
         <h2 className="font-bold ">{name}</h2>
         <p>{description}</p>
         <p className="hidden md:block">{auth}</p>
