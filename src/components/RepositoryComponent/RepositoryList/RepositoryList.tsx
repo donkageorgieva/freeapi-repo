@@ -15,8 +15,11 @@ const RepositoryList = ({ data, isLoading, errorMessage }: Props) => {
   return (
     <>
       <div>
-        <h1 className="text-3xl font-bold mb-2" data-testid="public-api-list">
-          Public APIs{" "}
+        <h1
+          className="text-3xl font-bold mb-2 mt-10 xl:mt-0"
+          data-testid="public-api-list"
+        >
+          Public APIs
         </h1>
         {isLoading && <h1>Loading</h1>}
         <section className="grid grid-cols-3 md:grid-cols-6 gap-2 p-8 bg-white shadow-md rounded-lg mt-5 ">
