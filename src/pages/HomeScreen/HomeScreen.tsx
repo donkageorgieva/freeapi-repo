@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Card from "../../components/ui/Card/Card";
 import LinkButton from "../../components/ui/LinkButton/LinkButton";
 
@@ -15,8 +16,16 @@ const HomeScreen = () => {
             us today and unleash the power of APIs for your projects and ideas.
           </p>
           <div className="flex gap-2">
-            <LinkButton to="login">Login</LinkButton>
+            <LinkButton to="auth/login">Login</LinkButton>
             <LinkButton to="repository">Continue as Guest</LinkButton>
+          </div>
+          <div className="py-4">
+            <Link to="auth/signup" className="text-indigo-600">
+              Don't have an account? <br />
+              <span className="decoration-4 hover:underline underline-offset-4 font-bold transition-all">
+                Sign up
+              </span>
+            </Link>
           </div>
         </Card>
       </section>
