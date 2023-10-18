@@ -17,7 +17,9 @@ const HomeScreen = () => {
           </p>
           <div className="flex gap-2">
             <LinkButton to="auth/login">Login</LinkButton>
-            <LinkButton to="repository">Continue as Guest</LinkButton>
+            <LinkButton to="repository" secondary={true}>
+              Continue as Guest
+            </LinkButton>
           </div>
           <div className="py-4">
             <Link to="auth/register" className="text-indigo-600 ">

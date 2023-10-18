@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import ArrowBack from "../../../assets/svgs/ArrowBack";
 
-const BackButton = ({ children }: { children: React.ReactNode }) => {
+const BackButton = ({ children }: { children?: React.ReactNode }) => {
   const navigate = useNavigate();
   const onGoBack = () => {
     navigate(-1);
