@@ -22,7 +22,7 @@ const RepositoryList = ({ data, isLoading, errorMessage }: Props) => {
           Public APIs
         </h1>
         {isLoading && <h1>Loading</h1>}
-        <section className="grid grid-cols-3 md:grid-cols-6 gap-2 p-8 bg-white shadow-md rounded-lg mt-5 ">
+        <section className="grid grid-cols-3 md:grid-cols-6 gap-2 p-4 xl:p-8 bg-white shadow-md rounded-lg mt-5 ">
           <h2 className="font-bold">Name</h2>
           <h2 className="font-bold">Description</h2>
           <h2 className="font-bold hidden md:block">Auth</h2>

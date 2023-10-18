@@ -5,7 +5,7 @@ import SplitScreen from "../../components/layout/SplitScreen/SplitScreen";
 const RepositoryScreen = () => {
   return (
     <main
-      className="md:container mx-auto py-20 my-10 top-0 rounded-e-md"
+      className="container mx-auto py-20 my-10 top-0 rounded-e-md px-4 xl:px-0"
       data-testid="repo-screen"
     >
       <SplitScreen
