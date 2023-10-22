@@ -9,6 +9,7 @@ import ArrowBack from "../../assets/svgs/ArrowBack";
 import StyledButton from "../ui/StyledButton/StyledButton";
 import { useAppDispatch } from "../../services/state/store/store";
 import { registerUser } from "../../services/state/store/features/thunks/user/registerUser";
+import { loginUser } from "../../services/state/store/features/thunks/user/loginUser";
 interface Props {
   formType: string;
 }
@@ -26,7 +27,7 @@ const AuthForm = ({ formType }: Props) => {
     if (formType === "register") {
       dispatch(registerUser(data));
     } else if (formType === "login") {
-      console.log("login");
+      dispatch(loginUser(data));
     }
   };
   return (

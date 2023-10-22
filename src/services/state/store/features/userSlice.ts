@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IUserState } from "../../../../interfaces/IUserState";
 import { registerUser } from "./thunks/user/registerUser";
+import { loginUser } from "./thunks/user/loginUser";
 
 const initialState: IUserState = {
   email: "",
@@ -17,6 +18,12 @@ const userSlice = createSlice({
       state = {
         ...action.payload,
       };
+    });
+    builder.addCase(loginUser.fulfilled, (state, action) => {
+      state = {
+        ...action.payload,
+      };
+      console.log(action.payload, "payload");
     });
   },
 });
