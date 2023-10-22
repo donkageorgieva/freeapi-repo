@@ -1,5 +1,5 @@
-export interface IUserState {
-  email: string;
+import { IUserLogin } from "./IUserLogin";
+
+export interface IUserState extends IUserLogin {
   token: string;
-  username: string;
 }

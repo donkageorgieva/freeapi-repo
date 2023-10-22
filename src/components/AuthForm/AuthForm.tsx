@@ -23,8 +23,11 @@ const AuthForm = ({ formType }: Props) => {
   } = useForm<Inputs>();
   const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log("here");
-    dispatch(registerUser(data));
+    if (formType === "register") {
+      dispatch(registerUser(data));
+    } else if (formType === "login") {
+      console.log("login");
+    }
   };
   return (
     <Card
