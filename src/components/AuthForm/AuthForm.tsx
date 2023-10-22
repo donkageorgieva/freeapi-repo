@@ -7,6 +7,8 @@ import BackButton from "../ui/BackButton/BackButton";
 import styles from "./AuthForm.module.scss";
 import ArrowBack from "../../assets/svgs/ArrowBack";
 import StyledButton from "../ui/StyledButton/StyledButton";
+import { useAppDispatch } from "../../services/state/store/store";
+import { registerUser } from "../../services/state/store/features/thunks/user/registerUser";
 interface Props {
   formType: string;
 }
@@ -19,7 +21,11 @@ const AuthForm = ({ formType }: Props) => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const dispatch = useAppDispatch();
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log("here");
+    dispatch(registerUser(data));
+  };
   return (
     <Card
       classNames={[

@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { repoSlice } from "./features/repositorySlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import userSlice from "./features/userSlice";
 
 export const store = configureStore({
   reducer: {
     repository: repoSlice.reducer,
+    user: userSlice.reducer,
   },
 });
 
