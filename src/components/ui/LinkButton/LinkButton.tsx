@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
 import { ReactNode } from "react";
+import StyledButton from "../StyledButton/StyledButton";
 interface Props {
   children: ReactNode;
   to: string;
+  secondary?: boolean;
 }
-const LinkButton = ({ to, children }: Props) => {
+const LinkButton = ({ to, children, secondary }: Props) => {
   return (
-    <Link
-      to={to}
-      className="bg-indigo-500 rounded-lg px-5 py-2 text-white my-2 inline-block hover:bg-indigo-900 transition-all "
-    >
-      {children}
-    </Link>
+    <StyledButton secondary={secondary}>
+      <Link to={to}>{children}</Link>
+    </StyledButton>
   );
 };
 

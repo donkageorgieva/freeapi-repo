@@ -1,0 +1,20 @@
+.button {
+  button,
+  a {
+    @apply rounded-lg px-5 py-2 my-2 inline-block hover:bg-indigo-900 transition-all;
+  }
+}
+
+.styled-button-primary {
+  button,
+  a {
+    @apply bg-indigo-500 text-white;
+  }
+}
+
+.styled-button-secondary {
+  button,
+  a {
+    @apply outline outline-indigo-500 text-indigo-500 hover:text-white hover:outline-none;
+  }
+}

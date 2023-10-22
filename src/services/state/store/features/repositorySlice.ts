@@ -5,13 +5,7 @@ import {
   getByCategoryAsync,
   getCategoriesAsync,
 } from "./thunks/repository/getCategories";
-interface IRepositoryState {
-  filter: string | null;
-  apis: IFreeApi[];
-  isLoading: boolean;
-  errorMessage: string | null;
-  categories: string[];
-}
+import { IRepositoryState } from "../../../../interfaces/IRepositoryState";
 
 export const initialState: IRepositoryState = {
   filter: null,
