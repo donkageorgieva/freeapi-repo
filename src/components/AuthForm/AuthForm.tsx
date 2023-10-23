@@ -77,6 +77,7 @@ const AuthForm = ({ formType }: Props) => {
               defaultValue=""
               {...register("password", passwordValidation)}
             />
+            {errors.password && <p>{errors.password.message}</p>}
           </div>
 
           {formType === "register" && (
@@ -95,6 +96,9 @@ const AuthForm = ({ formType }: Props) => {
                     confirmPasswordValidation(watch)
                   )}
                 />
+                {errors.confirmPassword && (
+                  <p>{errors.confirmPassword.message}</p>
+                )}
               </div>
 
               <div className="order-first">
