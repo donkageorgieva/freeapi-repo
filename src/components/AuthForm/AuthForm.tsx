@@ -10,6 +10,11 @@ import StyledButton from "../ui/StyledButton/StyledButton";
 import { useAppDispatch } from "../../services/state/store/store";
 import { registerUser } from "../../services/state/store/features/thunks/user/registerUser";
 import { loginUser } from "../../services/state/store/features/thunks/user/loginUser";
+import {
+  confirmPasswordValidation,
+  emailValidation,
+  passwordValidation,
+} from "../../utils/validators/AuthValidators";
 interface Props {
   formType: string;
 }
@@ -21,6 +26,7 @@ const AuthForm = ({ formType }: Props) => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<Inputs>();
   const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
@@ -30,6 +36,7 @@ const AuthForm = ({ formType }: Props) => {
       dispatch(loginUser(data));
     }
   };
+
   return (
     <Card
       classNames={[
@@ -54,8 +61,9 @@ const AuthForm = ({ formType }: Props) => {
               className="block"
               id="email"
               defaultValue=""
-              {...register("email")}
+              {...register("email", emailValidation)}
             />
+            {errors.email && <p>{errors.email.message}</p>}
           </div>
 
           <div>
@@ -67,7 +75,7 @@ const AuthForm = ({ formType }: Props) => {
               className="block"
               id="password"
               defaultValue=""
-              {...register("password")}
+              {...register("password", passwordValidation)}
             />
           </div>
 
@@ -82,7 +90,10 @@ const AuthForm = ({ formType }: Props) => {
                   className="block"
                   id="repeat-password"
                   defaultValue=""
-                  {...register("confirmPassword")}
+                  {...register(
+                    "confirmPassword",
+                    confirmPasswordValidation(watch)
+                  )}
                 />
               </div>
 
