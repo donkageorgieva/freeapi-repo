@@ -27,7 +27,10 @@ const AuthForm = ({ formType }: Props) => {
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm<Inputs>();
+    trigger,
+  } = useForm<Inputs>({
+    mode: "onBlur",
+  });
   const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     if (formType === "register") {
