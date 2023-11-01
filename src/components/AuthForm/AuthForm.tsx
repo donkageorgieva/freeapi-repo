@@ -27,7 +27,6 @@ const AuthForm = ({ formType }: Props) => {
     handleSubmit,
     formState: { errors },
     watch,
-    trigger,
   } = useForm<Inputs>({
     mode: "onBlur",
   });

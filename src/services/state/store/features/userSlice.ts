@@ -15,15 +15,12 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(registerUser.fulfilled, (state, action) => {
-      state = {
-        ...action.payload,
-      };
+      state.email = action.payload.email;
+      state.token = action.payload.token;
+      state.username = action.payload.username;
     });
     builder.addCase(loginUser.fulfilled, (state, action) => {
-      state = {
-        ...action.payload,
-      };
-      console.log(action.payload, "payload");
+      state.token = action.payload.token;
     });
   },
 });

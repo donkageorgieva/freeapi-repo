@@ -6,8 +6,16 @@ import { createCustomStore } from "../../../../utils/tests/custom-store";
 
 // Create a custom store with the custom initial state
 const customStore = createCustomStore({
-  ...initialState,
-  filter: "Animals",
+  repository: {
+    ...initialState,
+    filter: "Animals",
+  },
+
+  user: {
+    email: "",
+    username: "",
+    token: "",
+  },
 });
 describe("FilterItem ", () => {
   it("should render without errors", () => {
