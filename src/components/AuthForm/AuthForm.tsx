@@ -80,7 +80,9 @@ const AuthForm = ({ formType }: Props) => {
               defaultValue=""
               {...register("password", passwordValidation)}
             />
-            {errors.password && <p>{errors.password.message}</p>}
+            {errors.password && (
+              <p className="break-all">{errors.password.message}</p>
+            )}
           </div>
 
           {formType === "register" && (
@@ -100,7 +102,9 @@ const AuthForm = ({ formType }: Props) => {
                   )}
                 />
                 {errors.confirmPassword && (
-                  <p>{errors.confirmPassword.message}</p>
+                  <p className="break-words">
+                    {errors.confirmPassword.message}
+                  </p>
                 )}
               </div>
 

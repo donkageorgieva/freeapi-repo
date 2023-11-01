@@ -16,19 +16,19 @@ const HomeScreen = () => {
             us today and unleash the power of APIs for your projects and ideas.
           </p>
           <div className="flex gap-2">
-            <LinkButton to="auth/login">Login</LinkButton>
+            {/* <LinkButton to="auth/login">Login</LinkButton> */}
             <LinkButton to="repository" secondary={true}>
               Continue as Guest
             </LinkButton>
           </div>
-          <div className="py-4">
+          {/* <div className="py-4">
             <Link to="auth/register" className="text-indigo-600 ">
               Don't have an account?
               <span className="ml-2 decoration-4 hover:underline underline-offset-4 font-bold transition-all">
                 Sign up
               </span>
             </Link>
-          </div>
+          </div> */}
         </Card>
       </section>
     </main>
