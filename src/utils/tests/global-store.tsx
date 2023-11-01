@@ -10,6 +10,7 @@ import {
   repoSlice,
 } from "../../services/state/store/features/repositorySlice";
 import "@testing-library/jest-dom";
+import userSlice from "../../services/state/store/features/userSlice";
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: PreloadedState<RootState>;
   store?: AppStore;
@@ -18,10 +19,13 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
 export function renderWithProviders(
   ui: React.ReactElement,
   {
-    preloadedState = { repository: { ...initialState } },
+    preloadedState = {
+      repository: { ...initialState },
+      user: { token: "", email: "", username: "" },
+    },
 
     store = configureStore({
-      reducer: { repository: repoSlice.reducer },
+      reducer: { repository: repoSlice.reducer, user: userSlice.reducer },
       preloadedState,
     }),
     ...renderOptions
