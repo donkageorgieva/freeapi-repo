@@ -1,7 +1,5 @@
 import { useState } from "react";
 import useScrollToTop from "../../../hooks/scrollToTop/useScrollToTop";
-import { getByCategoryAsync } from "../../../services/state/store/features/thunks/repository/getCategories";
-import { getRepositoryAsync } from "../../../services/state/store/features/thunks/repository/getRepository";
 import {
   RootState,
   useAppDispatch,
@@ -39,7 +37,12 @@ const FilterList = ({ data, toggleExpand }: Props) => {
   };
   const onClearFilter = async () => {
     if (!currentFilter) return;
-    dispatch(getRepositoryAsync());
+    if (!window.sessionStorage.getItem("repository")) {
+      dispatch(repoActions.getRepositoryAsync());
+    } else {
+      dispatch(repoActions.setApisFromStorage());
+    }
+
     toggleExpand();
   };
 
