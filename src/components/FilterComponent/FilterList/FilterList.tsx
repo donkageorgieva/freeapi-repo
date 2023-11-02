@@ -39,7 +39,12 @@ const FilterList = ({ data, toggleExpand }: Props) => {
   };
   const onClearFilter = async () => {
     if (!currentFilter) return;
-    dispatch(getRepositoryAsync());
+    if (!window.sessionStorage.getItem("repository")) {
+      dispatch(repoActions.getRepositoryAsync());
+    } else {
+      dispatch(repoActions.setApisFromStorage());
+    }
+
     toggleExpand();
   };
 
