@@ -18,12 +18,18 @@ export const initialState: IRepositoryState = {
 export const repoSlice = createSlice({
   name: "repository",
   initialState,
-  reducers: {},
+  reducers: {
+    setApisFromStorage(state, action) {
+      state.apis = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getRepositoryAsync.fulfilled, (state, action) => {
+      const entries = [...action.payload.entries];
+      console.log(action.payload);
       state.filter = null;
-      state.apis = [...action.payload.entries];
-
+      state.apis = entries;
+      window.sessionStorage.setItem("repository", JSON.stringify(entries));
       state.isLoading = false;
     });
     builder.addCase(getCategoriesAsync.fulfilled, (state, action) => {

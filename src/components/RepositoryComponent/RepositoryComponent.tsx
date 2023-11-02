@@ -18,7 +18,14 @@ const RepositoryComponent = () => {
     (state: RootState) => state.repository.errorMessage
   );
   useEffect(() => {
-    dispatch(repoActions.getRepositoryAsync());
+    if (!window.sessionStorage.getItem("repository")) {
+      dispatch(repoActions.getRepositoryAsync());
+    } else {
+      const items = window.sessionStorage.getItem("repository");
+      if (items) {
+        dispatch(repoActions.setApisFromStorage(JSON.parse(items)));
+      }
+    }
   }, []);
 
   return (

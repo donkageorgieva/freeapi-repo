@@ -32,7 +32,7 @@ const RepositoryList = ({ data, isLoading, errorMessage }: Props) => {
         </section>
         {!errorMessage && (
           <List
-            data={data && data.length > 0 ? data : mockedApis}
+            data={data && data.length > 0 && !isLoading ? data : mockedApis}
             keyPropertyName={["Link", "API"]}
             itemComponent={!isLoading ? RepositoryItem : RepositoryItemSkeleton}
           />

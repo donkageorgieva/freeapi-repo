@@ -4,7 +4,7 @@ import { usePublicApi } from "../../../../../../hooks/api/usePublicApi/usePublic
 export const getRepositoryAsync = createAsyncThunk(
   "repository/getRepositoryAsync",
   async () => {
-    const fetchData = usePublicApi("");
+    const fetchData = usePublicApi("/entries");
     const response = await fetchData();
     return response.data;
   }
