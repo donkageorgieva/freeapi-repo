@@ -10,7 +10,10 @@ export const initialState: IRepositoryState = {
   filter: null,
   apis: [],
   errorMessage: null,
-  isLoading: false,
+  isLoading: {
+    categories: false,
+    apis: false,
+  },
   categories: [],
 };
 
@@ -42,14 +45,14 @@ export const repoSlice = createSlice({
       state.filter = null;
       state.apis = entries;
       window.sessionStorage.setItem("repository", JSON.stringify(entries));
-      state.isLoading = false;
+      state.isLoading.apis = false;
     });
     builder.addCase(getCategoriesAsync.fulfilled, (state, action) => {
       const categories = [...action.payload.categories];
       state.categories = categories;
       window.sessionStorage.setItem("categories", JSON.stringify(categories));
 
-      state.isLoading = false;
+      state.isLoading.categories = false;
     });
     builder.addCase(getByCategoryAsync.fulfilled, (state, action) => {
       const filteredApis = action.payload.apis;
@@ -60,11 +63,27 @@ export const repoSlice = createSlice({
         action.payload.category,
         JSON.stringify(filteredApis)
       );
-      state.isLoading = false;
+      state.isLoading.apis = false;
     });
-    builder.addMatcher(isPending, (state) => {
-      state.isLoading = true;
-    });
+
+    builder.addMatcher(
+      (action) =>
+        isPending(action) &&
+        (action.type.includes("getByCategoryAsync/pending") ||
+          action.type.includes("getRepositoryAsync/pending")),
+      (state) => {
+        state.isLoading.apis = true;
+      }
+    );
+    builder.addMatcher(
+      (action) =>
+        isPending(action) &&
+        action.type.includes("getByCategoriesAdync/pending"),
+      (state) => {
+        state.isLoading.categories = true;
+      }
+    );
+
     builder.addMatcher(
       (action) => action.type.endsWith("/rejected"),
       (state, action) => {
