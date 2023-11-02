@@ -30,8 +30,9 @@ export const repoSlice = createSlice({
     },
     setFilterFromStorage(state, action) {
       const filteredItems = window.sessionStorage.getItem(action.payload);
-      if (!filteredItems) return;
-      state.filter = action.payload;
+      const selectedFilter = window.sessionStorage.getItem("filter");
+      if (!filteredItems || !selectedFilter) return;
+      state.filter = selectedFilter;
       state.apis = JSON.parse(filteredItems);
     },
   },
@@ -47,12 +48,14 @@ export const repoSlice = createSlice({
       const categories = [...action.payload.categories];
       state.categories = categories;
       window.sessionStorage.setItem("categories", JSON.stringify(categories));
+
       state.isLoading = false;
     });
     builder.addCase(getByCategoryAsync.fulfilled, (state, action) => {
       const filteredApis = action.payload.apis;
       state.filter = action.payload.category;
       state.apis = filteredApis;
+      window.sessionStorage.setItem("filter", action.payload.category);
       window.sessionStorage.setItem(
         action.payload.category,
         JSON.stringify(filteredApis)

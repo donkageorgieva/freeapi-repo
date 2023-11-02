@@ -42,6 +42,7 @@ const FilterList = ({ data, toggleExpand }: Props) => {
     } else {
       dispatch(repoActions.setApisFromStorage());
     }
+    window.sessionStorage.removeItem("filter");
 
     toggleExpand();
   };
