@@ -1,5 +1,4 @@
 import { createSlice, isPending } from "@reduxjs/toolkit";
-// import { IFreeApi } from "../../../../interfaces/IFreeApi";
 import { getRepositoryAsync } from "./thunks/repository/getRepository";
 import {
   getByCategoryAsync,

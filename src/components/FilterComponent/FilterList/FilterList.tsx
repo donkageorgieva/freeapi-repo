@@ -1,7 +1,5 @@
 import { useState } from "react";
 import useScrollToTop from "../../../hooks/scrollToTop/useScrollToTop";
-import { getByCategoryAsync } from "../../../services/state/store/features/thunks/repository/getCategories";
-import { getRepositoryAsync } from "../../../services/state/store/features/thunks/repository/getRepository";
 import {
   RootState,
   useAppDispatch,
