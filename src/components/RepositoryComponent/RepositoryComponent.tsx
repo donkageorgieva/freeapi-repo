@@ -18,10 +18,14 @@ const RepositoryComponent = () => {
     (state: RootState) => state.repository.errorMessage
   );
   useEffect(() => {
-    if (!window.sessionStorage.getItem("repository")) {
-      dispatch(repoActions.getRepositoryAsync());
+    const savedRepository = window.sessionStorage.getItem("repository");
+    const savedFilter = window.sessionStorage.getItem("filter");
+    if (!savedFilter) {
+      !savedRepository
+        ? dispatch(repoActions.getRepositoryAsync())
+        : dispatch(repoActions.setApisFromStorage());
     } else {
-      dispatch(repoActions.setApisFromStorage());
+      dispatch(repoActions.setFilterFromStorage(savedFilter));
     }
   }, []);
 
