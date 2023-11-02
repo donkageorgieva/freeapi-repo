@@ -10,6 +10,7 @@ import {
 import List from "../../ui/List/List";
 import FilterItem from "./FilterItem/FilterItem";
 import ChevronDown from "../../../assets/svgs/ChevronDown";
+import { repoActions } from "../../../services/state/store/features/repositorySlice";
 
 interface Props {
   isLoading: unknown;
@@ -27,7 +28,12 @@ const FilterList = ({ data, toggleExpand }: Props) => {
   );
   const onFilter = (item: any) => {
     if (currentFilter === item.category) return;
-    dispatch(getByCategoryAsync(item.category));
+    if (!window.sessionStorage.getItem(item.category)) {
+      dispatch(repoActions.getByCategoryAsync(item.category));
+    } else {
+      dispatch(repoActions.setFilterFromStorage(item.category));
+    }
+
     scrollToTop();
     toggleExpand();
   };

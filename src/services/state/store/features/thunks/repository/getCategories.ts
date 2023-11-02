@@ -4,7 +4,7 @@ import { usePublicApi } from "../../../../../../hooks/api/usePublicApi/usePublic
 export const getCategoriesAsync = createAsyncThunk(
   "repository/getCategoriesAsync",
   async () => {
-    const fetchData = usePublicApi("categories");
+    const fetchData = usePublicApi("/categories");
     const response = await fetchData();
 
     return response.data;
@@ -13,9 +13,9 @@ export const getCategoriesAsync = createAsyncThunk(
 export const getByCategoryAsync = createAsyncThunk(
   "repository/getByCategoryAsync",
   async (category: string) => {
-    const fetchData = usePublicApi(``);
+    const fetchData = usePublicApi(`/entries?category=${category}`);
     const response = await fetchData();
 
-    return { apis: response.data, category };
+    return { apis: response.data.entries, category };
   }
 );
