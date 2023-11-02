@@ -21,10 +21,7 @@ const RepositoryComponent = () => {
     if (!window.sessionStorage.getItem("repository")) {
       dispatch(repoActions.getRepositoryAsync());
     } else {
-      const items = window.sessionStorage.getItem("repository");
-      if (items) {
-        dispatch(repoActions.setApisFromStorage(JSON.parse(items)));
-      }
+      dispatch(repoActions.setApisFromStorage());
     }
   }, []);
 

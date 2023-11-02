@@ -24,7 +24,11 @@ const FilterComponent = () => {
     setExpand(!expand);
   };
   useEffect(() => {
-    dispatch(repoActions.getCategoriesAsync());
+    if (!window.sessionStorage.getItem("categories")) {
+      dispatch(repoActions.getCategoriesAsync());
+    } else {
+      dispatch(repoActions.setCategoriesFromStorage());
+    }
   }, [dispatch]);
 
   return (
