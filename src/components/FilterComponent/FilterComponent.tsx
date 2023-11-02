@@ -14,7 +14,7 @@ const FilterComponent = () => {
     (state: RootState) => state.repository.categories
   );
   const isLoading = useAppSelector(
-    (state: RootState) => state.repository.isLoading
+    (state: RootState) => state.repository.isLoading.categories
   );
   const errorMessage = useAppSelector(
     (state: RootState) => state.repository.errorMessage

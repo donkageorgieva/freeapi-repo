@@ -11,7 +11,7 @@ const RepositoryComponent = () => {
   const dispatch = useAppDispatch();
   const data = useAppSelector((state: RootState) => state.repository.apis);
   const isLoading = useAppSelector(
-    (state: RootState) => state.repository.isLoading
+    (state: RootState) => state.repository.isLoading.apis
   );
 
   const errorMessage = useAppSelector(
